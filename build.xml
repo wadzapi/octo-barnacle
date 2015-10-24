@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<project name="WadzapiAppDaddy" default="pack">
+	<target name="clean">
+		<delete dir="build/classes" />
+		<delete dir="dist" />
+	</target>
+	<target name="init">
+		<mkdir dir="build/classes" />
+		<mkdir dir="dist" />
+	</target>
+	<target name="compile" depends="init">
+		<javac srcdir="src" destdir="build/classes"/>
+	</target>
+	<target name="pack" depends="clean,compile">
+		<jar destfile="dist/wadzapiAppDaddy.jar" basedir="build/classes" includes="WadzapiAppDaddy.class" >
+			<manifest>
+				<attribute name="Main-Class" value="WadzapiAppDaddy"/>
+			</manifest>
+		</jar>
+	</target>
+</project>
