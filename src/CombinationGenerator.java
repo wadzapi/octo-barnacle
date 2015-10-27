@@ -1,19 +1,17 @@
+import java.util.Enumeration;
+
 /**
  * Класс-генератор сочетаний из n по k
  **/
-public class CombinationGenerator implements Iterator<Integer> {
+public class CombinationGenerator implements Enumeration<Integer> {
 
 	@Override
-	public boolean hasNext() {
-		
+	public boolean hasMoreElements() {
+		return false;
 	}
-
 
 	@Override
-	public Integer next() {
-		return Integer.valueOf(0);
+	public Integer nextElement() {
+		return null;
 	}
-	
-	
-	
 }

@@ -45,6 +45,7 @@ public class WadzapiAppDaddy {
 	}
 	
 	public static void main(String[] args) {
+		System.out.println("Вызов метода main для класса WadZapiAppDaddy");
 		//printNumbers(98, 103);
 		long currTime = System.nanoTime();
 		printNumbers();
