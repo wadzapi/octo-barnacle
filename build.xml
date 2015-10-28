@@ -12,10 +12,10 @@
 		<javac srcdir="src" destdir="build/classes"/>
 	</target>
 	<target name="pack" depends="clean,compile">
-		<jar destfile="dist/wadzapiAppDaddy.jar" basedir="build/classes" includes="WadzapiAppDaddy.class,Permutator.class" >
+		<jar destfile="dist/wadzapiAppDaddy.jar" basedir="build/classes" includes="WadzapiAppDaddy.class,JohnsonTrotterPermutation.class" >
 			<manifest>
 				<!--attribute name="Main-Class" value="WadzapiAppDaddy"/-->
-				<attribute name="Main-Class" value="Permutator"/>
+				<attribute name="Main-Class" value="JohnsonTrotterPermutation"/>
 			</manifest>
 		</jar>
 	</target>
