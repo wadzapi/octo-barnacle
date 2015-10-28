@@ -4,3 +4,4 @@ dist/
 *.iml
 .idea/
 target/
+logs/

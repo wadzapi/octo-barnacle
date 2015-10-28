@@ -1,3 +1,8 @@
+package org.wadzapi.combinatorics;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -10,6 +15,12 @@ import java.util.stream.Collectors;
  * @see <a href="https://javatalks.ru/topics/36077">JavaTalks исходный вариант</a>/>
  */
 public class JohnsonTrotterPermutation implements Enumeration<Integer> {
+
+    /**
+     * Логгер
+     */
+    private static final Logger log = LogManager.getLogger(JohnsonTrotterPermutation.class);
+
 
     private List<Integer> nums;
 
@@ -49,20 +60,22 @@ public class JohnsonTrotterPermutation implements Enumeration<Integer> {
         init(nums.size());
     }
 
-    //TODO Встроить логгер
     public static void main(String... args) {
-        System.out.println("Вызов метода main для класса Permutator");
+        log.info("Вызов метода main для класса Permutator");
         int maxDigits = Integer.MAX_VALUE / 10;
-        System.out.println("Начало перестановок для " + maxDigits + " элементов");
+        log.info("Начало перестановок для " + maxDigits + " элементов");
         long currTime = System.nanoTime();
         for (int n = 1; n < maxDigits; n++) {
-            System.out.println("Начало перестановки из " + n + " элементов");
+            log.info("Начало перестановки из " + n + " элементов");
             JohnsonTrotterPermutation pr = new JohnsonTrotterPermutation(n);
             while (pr.hasMoreElements()) {
+                log.debug(String.valueOf(pr.nextElement()));
+                ;
                 System.out.println(String.valueOf(pr.nextElement()));
             }
         }
         long elapsed = System.nanoTime() - currTime;
+        log.debug("elapsed : " + elapsed + " ms");
         System.out.println("elapsed : " + elapsed + " ms");
     }
 
