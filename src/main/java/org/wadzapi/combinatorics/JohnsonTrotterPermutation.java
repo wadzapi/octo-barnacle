@@ -3,9 +3,7 @@ package org.wadzapi.combinatorics;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -65,13 +63,22 @@ public class JohnsonTrotterPermutation implements Enumeration<Integer> {
         int maxDigits = Integer.MAX_VALUE / 10;
         log.info("Начало перестановок для " + maxDigits + " элементов");
         long currTime = System.nanoTime();
+        CombinationGenerator combinationGenerator = new CombinationGenerator();
+        Set<Set<Integer>> powerSet = combinationGenerator.getPowerSet();
+        //TODO Заменить геттер powerSet на проход по Enumeration
         for (int n = 1; n < maxDigits; n++) {
+            final int finalN = n;
+            log.debug("Subset for n=" + n + " ; finalN= " + finalN);
+            Set<Set<Integer>> subset = powerSet.stream().filter(subSet -> subSet.size() == finalN).collect(Collectors.toSet());
+            log.debug("subset: " + subset);
             log.info("Начало перестановки из " + n + " элементов");
-            JohnsonTrotterPermutation pr = new JohnsonTrotterPermutation(n);
-            while (pr.hasMoreElements()) {
-                log.debug(String.valueOf(pr.nextElement()));
-                ;
-                System.out.println(String.valueOf(pr.nextElement()));
+            for (Set<Integer> nextValue : subset) {
+                List<Integer> subSetList = new ArrayList<>(nextValue);
+                JohnsonTrotterPermutation pr = new JohnsonTrotterPermutation(subSetList);
+                while (pr.hasMoreElements()) {
+                    log.debug(String.valueOf(pr.nextElement()));
+                    System.out.println(String.valueOf(pr.nextElement()));
+                }
             }
         }
         long elapsed = System.nanoTime() - currTime;
@@ -146,6 +153,9 @@ public class JohnsonTrotterPermutation implements Enumeration<Integer> {
         return Integer.valueOf(elemString);
     }
 
+    /**
+     * TODO Javadoc
+     */
     private enum ArrowDirection {
         /**
          * TODO Javadoc
