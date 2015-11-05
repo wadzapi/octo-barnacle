@@ -8,16 +8,10 @@ import org.junit.Test;
 public class JohnsonTrotterPermutationTest {
 
     /**
-     * Тест метода {@link JohnsonTrotterPermutation#hasMoreElements()}
+     * Тест метода {@link JohnsonTrotterPermutation#iterator()}
      */
     @Test
-    public void testHasMoreElements() {
-    }
+    public void testIterator() {
 
-    /**
-     * Тест метода {@link JohnsonTrotterPermutation#nextElement()}
-     */
-    @Test
-    public void testNextElement() {
     }
 }

@@ -15,20 +15,20 @@ public class CombinationGeneratorTest {
      * Тест метода {@link CombinationGenerator#hasMoreElements()}
      */
     @Test
-    public void testHasMoreElements() throws Exception {
+    public void testHasMoreElements() {
     }
 
     /**
      * Тест метода {@link CombinationGenerator#nextElement()}
      */
     @Test
-    public void testNextElement() throws Exception {
+    public void testNextElement() {
     }
 
     /**
      * Тест метода {@link CombinationGenerator#generatePowerSet(Set)}}
      */
     @Test
-    public void testGeneratePowerSet() throws Exception {
+    public void testGeneratePowerSet() {
     }
 }

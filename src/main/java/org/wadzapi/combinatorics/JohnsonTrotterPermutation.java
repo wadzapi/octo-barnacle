@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @author RodionGork
  * @see <a href="https://javatalks.ru/topics/36077">JavaTalks исходный вариант</a>/>
  */
-public class JohnsonTrotterPermutation implements Enumeration<Integer> {
+public class JohnsonTrotterPermutation implements Iterable<Integer> {
 
     /**
      * Логгер
@@ -56,34 +56,6 @@ public class JohnsonTrotterPermutation implements Enumeration<Integer> {
             nums.add(i + 1);
         }
         init(nums.size());
-    }
-
-    public static void main(String... args) {
-        log.debug("Вызов метода main для класса Permutator");
-        int maxDigits = Integer.MAX_VALUE / 10;
-        log.info("Начало перестановок для " + maxDigits + " элементов");
-        long currTime = System.nanoTime();
-        CombinationGenerator combinationGenerator = new CombinationGenerator();
-        Set<Set<Integer>> powerSet = combinationGenerator.getPowerSet();
-        //TODO Заменить геттер powerSet на проход по Enumeration
-        for (int n = 1; n < maxDigits; n++) {
-            final int finalN = n;
-            log.debug("Subset for n=" + n + " ; finalN= " + finalN);
-            Set<Set<Integer>> subset = powerSet.stream().filter(subSet -> subSet.size() == finalN).collect(Collectors.toSet());
-            log.debug("subset: " + subset);
-            log.info("Начало перестановки из " + n + " элементов");
-            for (Set<Integer> nextValue : subset) {
-                List<Integer> subSetList = new ArrayList<>(nextValue);
-                JohnsonTrotterPermutation pr = new JohnsonTrotterPermutation(subSetList);
-                while (pr.hasMoreElements()) {
-                    log.debug(String.valueOf(pr.nextElement()));
-                    System.out.println(String.valueOf(pr.nextElement()));
-                }
-            }
-        }
-        long elapsed = System.nanoTime() - currTime;
-        log.debug("elapsed : " + elapsed + " ms");
-        System.out.println("elapsed : " + elapsed + " ms");
     }
 
     private void init(int n) {
@@ -142,15 +114,20 @@ public class JohnsonTrotterPermutation implements Enumeration<Integer> {
     }
 
     @Override
-    public boolean hasMoreElements() {
-        return cur < count;
-    }
+    public Iterator<Integer> iterator() {
+        return new Iterator<Integer>() {
+            @Override
+            public boolean hasNext() {
+                return cur < count;
+            }
 
-    @Override
-    public Integer nextElement() {
-        generateNextStep();
-        String elemString = nums.stream().map(digit -> digit.toString()).collect(Collectors.joining());
-        return Integer.valueOf(elemString);
+            @Override
+            public Integer next() {
+                generateNextStep();
+                String elemString = nums.stream().map(digit -> digit.toString()).collect(Collectors.joining());
+                return Integer.valueOf(elemString);
+            }
+        };
     }
 
     /**
