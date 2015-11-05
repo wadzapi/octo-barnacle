@@ -56,7 +56,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.wadzapi.combinatorics.BinomialCoefficientUtils</mainClass>
+                            <mainClass>org.wadzapi.combinatorics.JohnsonTrotterPermutation</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
