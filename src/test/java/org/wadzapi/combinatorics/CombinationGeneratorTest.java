@@ -9,6 +9,8 @@ import java.util.Set;
  */
 public class CombinationGeneratorTest {
 
+    //TODO Попробовать новые фичи junit 4 с мэтчерами http://hamcrest.org/JavaHamcrest
+
     /**
      * Тест метода {@link CombinationGenerator#hasMoreElements()}
      */
