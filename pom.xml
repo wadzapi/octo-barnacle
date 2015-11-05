@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>WadzapiCombinatoricGenerator</name>
-    <description></description>
+    <description>Проект реализации различных комбинаторных алгоритмов</description>
     <url></url>
     <properties>
     </properties>
@@ -56,7 +56,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.wadzapi.combinatorics.JohnsonTrotterPermutation</mainClass>
+                            <mainClass>org.wadzapi.combinatorics.BinomialCoefficientUtils</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -45,7 +45,7 @@ public class JohnsonTrotterPermutation implements Enumeration<Integer> {
     }
 
     /**
-     * @param n
+     * @param n Мощность начального множества
      */
     public JohnsonTrotterPermutation(int n) {
         /**
@@ -59,7 +59,7 @@ public class JohnsonTrotterPermutation implements Enumeration<Integer> {
     }
 
     public static void main(String... args) {
-        log.info("Вызов метода main для класса Permutator");
+        log.debug("Вызов метода main для класса Permutator");
         int maxDigits = Integer.MAX_VALUE / 10;
         log.info("Начало перестановок для " + maxDigits + " элементов");
         long currTime = System.nanoTime();
