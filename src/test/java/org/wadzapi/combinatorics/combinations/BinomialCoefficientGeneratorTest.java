@@ -1,14 +1,11 @@
-package org.wadzapi.combinatorics;
+package org.wadzapi.combinatorics.combinations;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
-
 /**
- * Юнит-тесты методов класса {@link org.wadzapi.combinatorics.BinomialCoefficientGenerator}
+ * Юнит-тесты методов класса {@link org.wadzapi.combinatorics.combinations.BinomialCoefficientGenerator}
  * При использовании необходимо учитывать макс. значение {@link Integer#MAX_VALUE}
  */
 public class BinomialCoefficientGeneratorTest {
@@ -41,7 +38,7 @@ public class BinomialCoefficientGeneratorTest {
     }
 
     /**
-     * Юнит-тесты метода класса {@link org.wadzapi.combinatorics.BinomialCoefficientGenerator#getBinomial(int, int)}
+     * Юнит-тесты метода класса {@link org.wadzapi.combinatorics.combinations.BinomialCoefficientGenerator#getBinomial(int, int)}
      */
     @Test
     public void testGetBinomial() {
@@ -62,7 +59,7 @@ public class BinomialCoefficientGeneratorTest {
                 Assert.assertEquals(BINOMIAL_COEFFICIENTS_REFERENCE_TABLE[n][k], pascalTriangleTable[n][k].getValue());
             }
         }
-        Arrays.stream(pascalTriangleTable).flatMap(Stream::of).forEach(System.out::println);
+        //Arrays.stream(pascalTriangleTable).flatMap(Stream::of).forEach(System.out::println);
     }
 
     /**

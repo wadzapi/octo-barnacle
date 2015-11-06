@@ -1,25 +1,30 @@
-package org.wadzapi.combinatorics;
+package org.wadzapi.combinatorics.permutations;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * Класс генерации перестановок по алгоритму Джонсона-Троттера
- * Алгоритм описан в Липский "Комбинаторика для программистов"
+ * Алгоритм описан в Липский "Комбинаторика для программистов" стр. 26
+ *
  * @author RodionGork
  * @see <a href="https://javatalks.ru/topics/36077">JavaTalks исходный вариант</a>/>
  */
 public class JohnsonTrotterPermutation implements Iterable<Integer> {
-
+    //TODO Логгирование
     /**
      * Логгер
      */
     private static final Logger log = LogManager.getLogger(JohnsonTrotterPermutation.class);
 
-
+    /**
+     * TODO Javadoc
+     */
     private List<Integer> nums;
 
     /**
@@ -28,16 +33,20 @@ public class JohnsonTrotterPermutation implements Iterable<Integer> {
     private List<Boolean> arrows;
 
     /**
-     *
+     * TODO Javadoc
      */
     private long count;
 
     /**
-     *
+     * TODO Javadoc
      */
     private long cur;
 
-
+    /**
+     * Конструктор класса
+     *
+     * @param nums TODO Javadoc
+     */
     public JohnsonTrotterPermutation(List<Integer> nums) {
         this.nums = nums;
         init(nums.size());
@@ -45,19 +54,10 @@ public class JohnsonTrotterPermutation implements Iterable<Integer> {
     }
 
     /**
-     * @param n Мощность начального множества
+     * TODO Javadoc
+     *
+     * @param n
      */
-    public JohnsonTrotterPermutation(int n) {
-        /**
-         * TODO Удалить stub
-         */
-        nums = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) {
-            nums.add(i + 1);
-        }
-        init(nums.size());
-    }
-
     private void init(int n) {
         this.arrows = new ArrayList<>(n);
 
@@ -129,6 +129,8 @@ public class JohnsonTrotterPermutation implements Iterable<Integer> {
             }
         };
     }
+
+    //TODO Рефакторинг boolean на enum
 
     /**
      * TODO Javadoc

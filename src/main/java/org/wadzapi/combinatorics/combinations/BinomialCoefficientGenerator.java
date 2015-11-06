@@ -1,4 +1,4 @@
-package org.wadzapi.combinatorics;
+package org.wadzapi.combinatorics.combinations;
 
 
 import org.apache.logging.log4j.LogManager;
@@ -19,6 +19,7 @@ public class BinomialCoefficientGenerator {
 
     /**
      * Метод вычисления биномиального коэффициента
+     *
      * @param n Мощность исходного множества
      * @param k Мощность подмножества
      * @return число подможнеств из n по k (биномиальный коэффициент)
@@ -80,6 +81,7 @@ public class BinomialCoefficientGenerator {
 
         /**
          * Конструктор класса
+         *
          * @param n мощность исходного множества
          * @param k мощность подмножества
          */
