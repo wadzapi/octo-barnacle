@@ -6,8 +6,10 @@ import org.wadzapi.combinatorics.combinations.PowerSetGenerator;
 import org.wadzapi.combinatorics.permutations.JohnsonTrotterPermutation;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 /**
  * Класс генерации последовательности чисел без повтора цифр
@@ -47,8 +49,9 @@ public class CombinatoricsSequenceGenerator {
         for (Set<Integer> combination : powerSet) {
             log.info("{} перестанок последовательности: {}", "Начало", combination);
             if (combination.size() > 0) {
-                for (Integer nextPermutation : new JohnsonTrotterPermutation(new ArrayList<>(combination))) {
-                    log.info(String.valueOf(nextPermutation));
+                for (List<Integer> nextPermutation : new JohnsonTrotterPermutation(new ArrayList<>(combination))) {
+                    String numsString = nextPermutation.stream().map(digit -> digit.toString()).collect(Collectors.joining());
+                    log.info(String.valueOf(numsString));
                 }
             }
             log.info("{} перестанок последовательности: {}", "Конец", combination);

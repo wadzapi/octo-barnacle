@@ -1,11 +1,11 @@
-package org.wadzapi.combinatorics.combinations;
+package org.wadzapi.combinatorics.math;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Юнит-тесты методов класса {@link org.wadzapi.combinatorics.combinations.BinomialCoefficientGenerator}
+ * Юнит-тесты методов класса {@link org.wadzapi.combinatorics.math.BinomialCoefficientGenerator}
  * При использовании необходимо учитывать макс. значение {@link Integer#MAX_VALUE}
  */
 public class BinomialCoefficientGeneratorTest {
@@ -38,7 +38,7 @@ public class BinomialCoefficientGeneratorTest {
     }
 
     /**
-     * Юнит-тесты метода класса {@link org.wadzapi.combinatorics.combinations.BinomialCoefficientGenerator#getBinomial(int, int)}
+     * Юнит-тесты метода класса {@link org.wadzapi.combinatorics.math.BinomialCoefficientGenerator#getBinomial(int, int)}
      */
     @Test
     public void testGetBinomial() {

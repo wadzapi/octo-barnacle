@@ -1,4 +1,4 @@
-package org.wadzapi.combinatorics.combinations;
+package org.wadzapi.combinatorics.math;
 
 
 import org.apache.logging.log4j.LogManager;

@@ -6,7 +6,6 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Класс генерации перестановок по алгоритму Джонсона-Троттера
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
  * @author RodionGork
  * @see <a href="https://javatalks.ru/topics/36077">JavaTalks исходный вариант</a>/>
  */
-public class JohnsonTrotterPermutation implements Iterable<Integer> {
+public class JohnsonTrotterPermutation implements Iterable<List<Integer>> {
     //TODO Логгирование
     /**
      * Логгер
@@ -48,9 +47,10 @@ public class JohnsonTrotterPermutation implements Iterable<Integer> {
      * @param nums TODO Javadoc
      */
     public JohnsonTrotterPermutation(List<Integer> nums) {
+        log.trace("{} инициализации класса генерации перестановок по Джонсону-Троттеру", "Начало");
         this.nums = nums;
         init(nums.size());
-
+        log.trace("{} инициализации класса генерации перестановок по Джонсону-Троттеру", "Конец");
     }
 
     /**
@@ -59,6 +59,7 @@ public class JohnsonTrotterPermutation implements Iterable<Integer> {
      * @param n
      */
     private void init(int n) {
+        log.debug("{} инициализации механизма перестновок по Джонсону-Троттеру", "");
         this.arrows = new ArrayList<>(n);
 
         for (int i = 0; i < n; i++) {
@@ -70,6 +71,7 @@ public class JohnsonTrotterPermutation implements Iterable<Integer> {
             count *= i;
         }
         cur = 0;
+        log.debug("{} инициализации механизма перестновок по Джонсону-Троттеру", "");
     }
 
     /**
@@ -114,18 +116,17 @@ public class JohnsonTrotterPermutation implements Iterable<Integer> {
     }
 
     @Override
-    public Iterator<Integer> iterator() {
-        return new Iterator<Integer>() {
+    public Iterator<List<Integer>> iterator() {
+        return new Iterator<List<Integer>>() {
             @Override
             public boolean hasNext() {
                 return cur < count;
             }
 
             @Override
-            public Integer next() {
+            public List<Integer> next() {
                 generateNextStep();
-                String elemString = nums.stream().map(digit -> digit.toString()).collect(Collectors.joining());
-                return Integer.valueOf(elemString);
+                return nums;
             }
         };
     }
