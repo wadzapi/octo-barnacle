@@ -1,7 +1,9 @@
-package org.wadzapi.combinatorics.sequenceGenerator;
+package org.wadzapi.combinatorics.main;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.wadzapi.combinatorics.sequenceGenerator.CombinatoricsSequenceGenerator;
+import org.wadzapi.combinatorics.sequenceGenerator.ExhaustiveSearchSequenceGenerator;
 
 /**
  * Основсной класс для запуска программы генерации последовательностей чисел, в которых не встречаются повторы

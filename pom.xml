@@ -9,8 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <name>WadzapiCombinatoricGenerator</name>
     <description>Проект реализации различных комбинаторных алгоритмов</description>
-    <url></url>
+    <url>https://github.com/wadzapi/appdaddy-octo-barnacle</url>
     <properties>
+        <java-source.version>1.8</java-source.version>
+        <java-target.version>1.8</java-target.version>
     </properties>
 
     <build>
@@ -21,21 +23,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <!-- maven-jar-plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>org.wadzapi.combinatorics.sequenceGenerator.SequenceBenchmarking</mainClass>
-                        </manifest>
-                    </archive>
+                    <source>${java-source.version}</source>
+                    <target>${java-target.version}</target>
                 </configuration>
             </plugin>
             <!-- maven-assembly-plugin -->
@@ -56,7 +45,8 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.wadzapi.combinatorics.sequenceGenerator.SequenceBenchmarking</mainClass>
+                            <mainClass>org.wadzapi.combinatorics.main.TreeTraversing</mainClass>
+<!--<mainClass>org.wadzapi.combinatorics.main.SequenceBenchmarking</mainClass>-->
                         </manifest>
                     </archive>
                 </configuration>
