@@ -1,4 +1,4 @@
-package org.wadzapi.combinatorics.tree;
+package org.wadzapi.combinatorics.tree.dom;
 
 /**
  * Класс ошибки при работе с DOM-деревом
