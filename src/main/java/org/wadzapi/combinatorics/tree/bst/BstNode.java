@@ -10,8 +10,6 @@ import java.util.List;
  * Класс структуры, представляющей узел бинарного дерева
  */
 public class BstNode<Key extends Comparable<Key>, Value> implements Node<Key, Value> {
-
-    //TODO Логирование, javaDoc
     /**
      * Размер коллекции связанных узлов
      */
@@ -24,7 +22,6 @@ public class BstNode<Key extends Comparable<Key>, Value> implements Node<Key, Va
      * Значение
      */
     private Value value;
-
     /**
      * Информация о связях узла
      */
@@ -40,6 +37,8 @@ public class BstNode<Key extends Comparable<Key>, Value> implements Node<Key, Va
         }
         this.key = nodeBuilder.key;
         this.bstNodeLinks = new ArrayList<>(LINKED_NODES_SIZE);
+        this.bstNodeLinks.add(null);
+        this.bstNodeLinks.add(null);
     }
 
     /**
@@ -62,6 +61,7 @@ public class BstNode<Key extends Comparable<Key>, Value> implements Node<Key, Va
      * {@inheritDoc}
      */
     @Override
+    @SuppressWarnings("unchecked")
     public Collection<Node> getLinkedNodes() {
         return (Collection) bstNodeLinks;
     }
@@ -70,6 +70,7 @@ public class BstNode<Key extends Comparable<Key>, Value> implements Node<Key, Va
      * Метод получения левого узла
      * @return левый узел
      */
+    @SuppressWarnings("unchecked")
     public BstNode<Key, Value> getLeft() {
         return bstNodeLinks.get(0);
     }
@@ -86,6 +87,7 @@ public class BstNode<Key extends Comparable<Key>, Value> implements Node<Key, Va
      * Метод получения правого узла
      * @return правый узел
      */
+    @SuppressWarnings("unchecked")
     public BstNode<Key, Value> getRight() {
         return bstNodeLinks.get(1);
     }
@@ -129,8 +131,8 @@ public class BstNode<Key extends Comparable<Key>, Value> implements Node<Key, Va
          * Метод построения узла
          * @return узел
          */
+        @SuppressWarnings("unchecked")
         public BstNode build() {
-
             return new BstNode(this);
         }
     }

@@ -13,6 +13,7 @@
     <properties>
         <java-source.version>1.8</java-source.version>
         <java-target.version>1.8</java-target.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
@@ -46,7 +47,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <mainClass>org.wadzapi.combinatorics.main.TreeTraversing</mainClass>
-<!--<mainClass>org.wadzapi.combinatorics.main.SequenceBenchmarking</mainClass>-->
+                            <!--<mainClass>org.wadzapi.combinatorics.main.SequenceBenchmarking</mainClass>-->
                         </manifest>
                     </archive>
                 </configuration>
